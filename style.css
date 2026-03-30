@@ -245,3 +245,27 @@ p {
     background: rgba(232, 240, 250, 0.72);
     border-top: 1px solid rgba(24, 80, 160, 0.12);
 }
+
+
+/* Hero readability for blog articles */
+.blog-post-page .article-hero-copy h1 {
+    color: #f0a838;
+}
+
+.blog-post-page .article-hero-copy p,
+.blog-post-page .article-hero-copy .blog-meta {
+    color: rgba(255, 248, 232, 0.92);
+}
+
+
+/* Stronger blog hero heading contrast */
+.blog-post-page .article-hero-copy h1 {
+    color: #f0a838 !important;
+    text-shadow: 0 10px 24px rgba(0, 0, 0, 0.28);
+}
+
+.blog-post-page .article-hero-copy p,
+.blog-post-page .article-hero-copy .blog-meta {
+    color: rgba(255, 248, 232, 0.96) !important;
+    text-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+}
