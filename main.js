@@ -17,7 +17,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const encodedUrl = encodeURIComponent(pageUrl);
                 const encodedTitle = encodeURIComponent(pageTitle);
                 const shareLinks = { facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`, x: `https://twitter.com/intent/tweet?url=${encodedUrl}&text=${encodedTitle}`, linkedin: `https://www.linkedin.com/sharing/share-offsite/?url=${encodedUrl}`, whatsapp: `https://wa.me/?text=${encodedTitle}%20${encodedUrl}` };
-                if (network === 'copy') { navigator.clipboard.writeText(pageUrl).then(() => { button.textContent = 'Copied'; setTimeout(() => { button.textContent = 'Copy Link'; }, 1600); }); return; }
+                if (network === 'copy') { navigator.clipboard.writeText(pageUrl).then(() => { button.textContent = 'Enlace copiado'; setTimeout(() => { button.textContent = 'Copiar enlace'; }, 1600); }); return; }
                 window.open(shareLinks[network], '_blank', 'noopener,noreferrer,width=700,height=620');
             });
         });
@@ -31,13 +31,13 @@ document.addEventListener('DOMContentLoaded', () => {
         function saveComments(items) { localStorage.setItem(key, JSON.stringify(items)); }
         function renderComments() {
             const items = readComments();
-            if (!items.length) { list.innerHTML = '<p class="comments-note">Be the first to leave a thoughtful comment on this article.</p>'; return; }
+            if (!items.length) { list.innerHTML = '<p class="comments-note">Se la primera persona en dejar un comentario en este articulo.</p>'; return; }
             list.innerHTML = items.map((item) => `<article class="comment-item"><strong>${item.name}</strong><time>${item.date}</time><p>${item.comment}</p></article>`).join('');
         }
         form.addEventListener('submit', (event) => {
             event.preventDefault();
             const data = new FormData(form);
-            const nextItem = { name: data.get('name').toString().trim(), email: data.get('email').toString().trim(), comment: data.get('comment').toString().trim(), date: new Date().toLocaleString() };
+            const nextItem = { name: data.get('name').toString().trim(), email: data.get('email').toString().trim(), comment: data.get('comment').toString().trim(), date: new Date().toLocaleString('es-US', { dateStyle: 'medium', timeStyle: 'short' }) };
             if (!nextItem.name || !nextItem.email || !nextItem.comment) { return; }
             const items = readComments();
             items.unshift(nextItem);
