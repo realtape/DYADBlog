@@ -619,3 +619,21 @@ p {
     cursor: default;
     pointer-events: none;
 }
+
+
+.post-disclaimer {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(24, 80, 160, 0.1);
+}
+
+.post-disclaimer p {
+    margin: 0;
+    color: #5a7198;
+    font-size: 0.82rem;
+    line-height: 1.6;
+}
+
+.post-disclaimer strong {
+    color: #355a92;
+}
