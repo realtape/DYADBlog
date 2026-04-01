@@ -46,6 +46,7 @@ function attachEngagementSection() {
   const main = document.querySelector("main");
   if (!main || document.querySelector("[data-engagement]")) return;
   const path = window.location.pathname.toLowerCase();
+  const page = path.split("/").pop() || "index.html";
   if (path.endsWith("/index.html") || path.endsWith("/") || path === "/") return;
 
   const wrap = document.createElement("section");
@@ -80,25 +81,35 @@ function attachEngagementSection() {
     </div>
   `;
 
-  const comments = document.createElement("article");
-  comments.className = "comments-panel";
-  comments.innerHTML = `
-    <h3>Comentarios</h3>
-    <p class="comments-note">Comparte tu duda o experiencia. Este demo guarda comentarios en tu navegador.</p>
-    <form class="comment-form" data-comment-form>
-      <label>Nombre
-        <input name="name" maxlength="60" required />
-      </label>
-      <label>Comentario
-        <textarea name="message" rows="4" maxlength="1000" required></textarea>
-      </label>
-      <button class="btn" type="submit">Publicar comentario</button>
-    </form>
-    <div class="comment-list" data-comment-list></div>
-  `;
+  const commentEnabledPages = new Set([
+    "blog-vawa-eligibility.html",
+    "blog-vawa-evidence.html",
+    "blog-confidentiality.html",
+    "blog-tvisa-workpermit.html",
+    "blog-tvisa-greencard.html",
+    "blog-itin-myths.html"
+  ]);
 
   wrap.appendChild(share);
-  wrap.appendChild(comments);
+  if (commentEnabledPages.has(page)) {
+    const comments = document.createElement("article");
+    comments.className = "comments-panel";
+    comments.innerHTML = `
+      <h3>Comentarios</h3>
+      <p class="comments-note">Comparte tu duda o experiencia. Este demo guarda comentarios en tu navegador.</p>
+      <form class="comment-form" data-comment-form>
+        <label>Nombre
+          <input name="name" maxlength="60" required />
+        </label>
+        <label>Comentario
+          <textarea name="message" rows="4" maxlength="1000" required></textarea>
+        </label>
+        <button class="btn" type="submit">Publicar comentario</button>
+      </form>
+      <div class="comment-list" data-comment-list></div>
+    `;
+    wrap.appendChild(comments);
+  }
   main.appendChild(wrap);
 
   const pageUrl = window.location.href;
@@ -135,6 +146,11 @@ function attachEngagementSection() {
       copyLink();
     });
   });
+
+  if (!commentEnabledPages.has(page)) return;
+
+  const comments = wrap.querySelector(".comments-panel");
+  if (!comments) return;
 
   const storageKey = `dyad_comments_${window.location.pathname}`;
   const list = comments.querySelector("[data-comment-list]");
