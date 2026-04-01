@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://dyadlaw.com/sitemap.xml
+Sitemap: https://realtape.github.io/DYADBlog/sitemap.xml
