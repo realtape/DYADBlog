@@ -11,35 +11,60 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header"><div class="container nav-shell"><a class="brand" href="index.html"><img src="wp-content/uploads/2024/08/DYAD-Logo-CLR.svg" alt="DYADlaw"></a><button class="mobile-toggle" data-nav-toggle aria-expanded="false">Menu</button><nav class="site-nav" data-nav>
+  <header class="site-header">
+    <div class="container nav-shell">
+      <a class="brand" href="index.html"><img src="wp-content/uploads/2024/08/DYAD-Logo-CLR.svg" alt="DYADlaw"></a>
+      <button class="mobile-toggle" data-nav-toggle aria-expanded="false">Menu</button>
+      <nav class="site-nav" data-nav>
         <a href="index.html">INICIO</a>
         <a href="quienes-somos.html">QUIENES SOMOS</a>
         <a href="servicios.html">SERVICIOS</a>
         <a href="blog.html">BLOG</a>
         <a href="contacto.html">CONTACTO</a>
         <a href="contacto.html">CONSULTA</a>
-      </nav><a class="phone-btn" href="tel:+18584801077">(858) 480-1077</a></div></header>
+      </nav>
+      <a class="phone-btn" href="tel:+18584801077">(858) 480-1077</a>
+    </div>
+  </header>
   <main class="section">
     <div class="container split reveal">
       <article class="surface">
         <span class="eyebrow">Consulta</span>
-        <h1>Cuéntanos tu caso</h1>
-        <p>Responderemos con un siguiente paso claro para tu situacion migratoria.</p>
-        <ul>
-          <li>Telefono: <a href="tel:+18584801077">(858) 480-1077</a></li>
-          <li>Sitio: <a href="https://dyadlaw.com/contacto/">dyadlaw.com/contacto</a></li>
-          <li>Horario: Lunes a Viernes</li>
-        </ul>
+        <h1>Cuentanos tu caso</h1>
+        <p>Dejanos tu informacion y te compartimos un siguiente paso claro para tu situacion migratoria.</p>
+        <form class="contact-form" action="https://dyadlaw.com/consulta/" method="get">
+          <label>Nombre completo
+            <input type="text" name="nombre" required>
+          </label>
+          <label>Telefono
+            <input type="tel" name="telefono" required>
+          </label>
+          <label>Correo electronico
+            <input type="email" name="email" required>
+          </label>
+          <label>En que podemos ayudarte
+            <textarea name="mensaje" rows="4" required></textarea>
+          </label>
+          <button class="btn" type="submit">Enviar solicitud</button>
+        </form>
       </article>
       <article class="surface" style="background:var(--surface-warm);">
-        <h3>Mensaje rapido</h3>
-        <p>Para una atencion inmediata, usa llamada o WhatsApp desde el sitio oficial.</p>
-        <a class="btn" href="https://dyadlaw.com/contacto/">Abrir formulario oficial</a>
+        <h3>Mensaje por WhatsApp</h3>
+        <p>Si prefieres escribir por WhatsApp, abre el chat directo con DYADlaw y envia tu mensaje en segundos.</p>
+        <a class="btn" href="https://wa.me/18588776489?text=Hola%20DYADlaw,%20quiero%20una%20consulta%20de%20inmigracion." target="_blank" rel="noopener noreferrer">Abrir WhatsApp</a>
+        <p class="footer-note" style="margin-top:0.8rem;">Tambien puedes llamar al <a href="tel:+18584801077">(858) 480-1077</a>.</p>
       </article>
     </div>
   </main>
-  <footer class="site-footer"><div class="container footer-grid"><div class="footer-brand"><img src="wp-content/uploads/2024/08/DYAD-Logo-CLR.svg" alt="DYADlaw"><p class="footer-note">Informacion general, no asesoria legal individual.</p></div><p class="small">&copy; <span data-year></span> DYADlaw</p></div></footer>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="wp-content/uploads/2024/08/DYAD-Logo-CLR.svg" alt="DYADlaw">
+        <p class="footer-note">Informacion general, no asesoria legal individual.</p>
+      </div>
+      <p class="small">&copy; <span data-year></span> DYADlaw</p>
+    </div>
+  </footer>
   <script src="main.js"></script>
 </body>
 </html>
-
