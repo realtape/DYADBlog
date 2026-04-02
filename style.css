@@ -109,8 +109,14 @@ a {
   justify-content: center;
   border: 1px solid #bfd0ee;
   background: #fff;
-  font-size: 18px;
-  line-height: 1;
+  overflow: hidden;
+}
+
+.lang-flag img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
 }
 
 .lang-flag.active {

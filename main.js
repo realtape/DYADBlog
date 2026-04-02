@@ -347,8 +347,12 @@ function initLanguageFlags() {
   const wrap = document.createElement("div");
   wrap.className = "lang-switch";
   wrap.innerHTML = `
-    <a class="lang-flag ${isEn ? "" : "active"}" href="${mxHref}" aria-label="Ver sitio en español" title="Español">🇲🇽</a>
-    <a class="lang-flag ${isEn ? "active" : ""}" href="${usHref}" aria-label="View site in English" title="English">🇺🇸</a>
+    <a class="lang-flag ${isEn ? "" : "active"}" href="${mxHref}" aria-label="Ver sitio en español" title="Español">
+      <img src="https://flagcdn.com/w40/mx.png" alt="MX">
+    </a>
+    <a class="lang-flag ${isEn ? "active" : ""}" href="${usHref}" aria-label="View site in English" title="English">
+      <img src="https://flagcdn.com/w40/us.png" alt="US">
+    </a>
   `;
 
   const phoneBtn = shell.querySelector(".phone-btn");
