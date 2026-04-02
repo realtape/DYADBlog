@@ -1,6 +1,7 @@
 const navToggle = document.querySelector("[data-nav-toggle]");
 const navMenu = document.querySelector("[data-nav]");
-const currentPath = window.location.pathname.split("/").pop() || "index.html";
+const pathname = window.location.pathname.toLowerCase();
+const currentPath = pathname.split("/").pop() || "index.html";
 
 if (navMenu) {
   navMenu.querySelectorAll("a").forEach(link => {
@@ -9,8 +10,56 @@ if (navMenu) {
       link.setAttribute("href", "https://dyadlaw.com/consulta/");
     }
     link.classList.remove("active");
-    const href = link.getAttribute("href") || "";
-    if (href === currentPath) {
+  });
+
+  const sectionMap = [
+    {
+      test: () => pathname.includes("/servicios/") || currentPath === "servicios.html",
+      section: "services"
+    },
+    {
+      test: () =>
+        currentPath === "blog.html" ||
+        currentPath === "blog-en.html" ||
+        currentPath.startsWith("blog-") ||
+        currentPath.startsWith("landing-blog-"),
+      section: "blog"
+    },
+    {
+      test: () => currentPath === "contacto.html" || currentPath === "contacto-en.html",
+      section: "contact"
+    },
+    {
+      test: () => currentPath === "quienes-somos.html" || currentPath === "quienes-somos-en.html",
+      section: "about"
+    },
+    {
+      test: () =>
+        currentPath === "index.html" ||
+        currentPath === "index-en.html" ||
+        pathname.endsWith("/dyadlawedit1.1/"),
+      section: "home"
+    }
+  ];
+
+  const matchedSection = sectionMap.find(item => item.test())?.section;
+  if (matchedSection) {
+    const activeLink = navMenu.querySelector(`[data-nav-section="${matchedSection}"]`);
+    if (activeLink) activeLink.classList.add("active");
+  }
+
+  const serviceMenuLinks = navMenu.querySelectorAll(".nav-dropdown-menu a");
+  serviceMenuLinks.forEach(link => {
+    const href = (link.getAttribute("href") || "").toLowerCase();
+    if (!href) return;
+    const normalizedHref = href.replace(/\\/g, "/");
+    if (
+      normalizedHref.includes("/vawa-en-matrimonio/") && pathname.includes("/vawa-en-matrimonio/")
+      || normalizedHref.includes("/vawa-parental/") && pathname.includes("/vawa-parental/")
+      || normalizedHref.includes("/visa-t/") && pathname.includes("/visa-t/")
+      || normalizedHref.includes("/visa-u/") && pathname.includes("/visa-u/")
+      || normalizedHref.includes("/visa-familiar/") && pathname.includes("/visa-familiar/")
+    ) {
       link.classList.add("active");
     }
   });

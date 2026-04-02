@@ -11,12 +11,21 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header class="site-header"><div class="container nav-shell"><a class="brand" href="index.html"><img src="wp-content/uploads/2024/08/DYAD-Logo-CLR.svg" alt="DYADlaw"></a><button class="mobile-toggle" data-nav-toggle aria-expanded="false">Menu</button><nav class="site-nav" data-nav>
-        <a href="index.html">INICIO</a>
-        <a href="quienes-somos.html">QUIENES SOMOS</a>
-        <a href="servicios.html">SERVICIOS</a>
-        <a href="blog.html">BLOG</a>
-        <a href="contacto.html">CONTACTO</a>
+  <header class="site-header"><div class="container nav-shell"><a class="brand" href="index.html"><img src="wp-content/uploads/2024/08/DYAD-Logo-CLR.svg" alt="DYADlaw"></a><button class="mobile-toggle" data-nav-toggle aria-expanded="false">Menu</button>      <nav class="site-nav" data-nav>
+        <a href="index.html" data-nav-section="home">INICIO</a>
+        <a href="quienes-somos.html" data-nav-section="about">QUIENES SOMOS</a>
+        <div class="nav-dropdown">
+          <a href="servicios.html" class="nav-dropdown-trigger" data-nav-section="services">SERVICIOS</a>
+          <div class="nav-dropdown-menu" aria-label="Servicios">
+            <a href="servicios/vawa-en-matrimonio/index.html">VAWA en matrimonio</a>
+            <a href="servicios/vawa-parental/index.html">VAWA parental</a>
+            <a href="servicios/visa-t/index.html">Visa T</a>
+            <a href="servicios/visa-u/index.html">Visa U</a>
+            <a href="servicios/visa-familiar/index.html">Visa familiar</a>
+          </div>
+        </div>
+        <a href="blog.html" data-nav-section="blog">BLOG</a>
+        <a href="contacto.html" data-nav-section="contact">CONTACTO</a>
         <a href="contacto.html">CONSULTA</a>
       </nav><a class="phone-btn" href="tel:+18584801077">(858) 480-1077</a></div></header>
   <main class="section">
@@ -44,4 +53,5 @@
   <script src="main.js"></script>
 </body>
 </html>
+
 
