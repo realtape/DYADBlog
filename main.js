@@ -6,6 +6,7 @@ if (navMenu) {
   navMenu.querySelectorAll("a").forEach(link => {
     if ((link.textContent || "").trim().toUpperCase() === "CONSULTA") {
       link.classList.add("nav-consulta");
+      link.setAttribute("href", "https://dyadlaw.com/consulta/");
     }
     link.classList.remove("active");
     const href = link.getAttribute("href") || "";
